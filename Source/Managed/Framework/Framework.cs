@@ -7651,6 +7651,15 @@ namespace UnrealEngine.Framework {
 		/// Returns the pixel format
 		/// </summary>
 		public PixelFormat GetPixelFormat() => getPixelFormat(Pointer);
+
+		/// <summary>
+		/// Sets whether the texture should use SRGB color space (<c>true</c>) or linear color space (<c>false</c>).
+		/// </summary>
+		public void SetSRGB(bool Value) => setSRGB ( Pointer, Value );
+		/// <summary>
+		/// Updates the texture with its new parameters.
+		/// </summary>
+		public void UpdateResource () => updateResource ( Pointer );
 	}
 
 	/// <summary>

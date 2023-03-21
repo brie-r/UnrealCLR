@@ -700,6 +700,8 @@ void UnrealCLR::Module::StartupModule() {
 				Shared::Texture2DFunctions[head++] = (void*)&UnrealCLRFramework::Texture2D::HasAlphaChannel;
 				Shared::Texture2DFunctions[head++] = (void*)&UnrealCLRFramework::Texture2D::GetSize;
 				Shared::Texture2DFunctions[head++] = (void*)&UnrealCLRFramework::Texture2D::GetPixelFormat;
+				Shared::Texture2DFunctions[head++] = (void*)&UnrealCLRFramework::Texture2D::SetSRGB;
+				Shared::Texture2DFunctions[head++] = (void*)&UnrealCLRFramework::Texture2D::UpdateResource;
 
 				checksum += head;
 			}
@@ -1450,15 +1452,9 @@ void UnrealCLR::Module::HostError(const char_t* Message) {
 }
 
 void UnrealCLR::Module::Exception(const char* Message) {
-	const FString message(ANSI_TO_TCHAR(Message));
+	FString message(ANSI_TO_TCHAR(Message));
 
-	FString OutputLog(message);
-
-	OutputLog.ReplaceCharInline(TEXT('\n'), TEXT(' '));
-	OutputLog.ReplaceCharInline(TEXT('\r'), TEXT(' '));
-	OutputLog.ReplaceInline(TEXT("     "), TEXT(" "));
-
-	UE_LOG(LogUnrealCLR, Error, TEXT("%s: %s"), ANSI_TO_TCHAR(__FUNCTION__), *OutputLog);
+	UE_LOG(LogUnrealCLR, Error, TEXT("%s: %s"), ANSI_TO_TCHAR(__FUNCTION__), *message);
 
 	GEngine->AddOnScreenDebugMessage((uint64)-1, 10.0f, FColor::Red, *message);
 }

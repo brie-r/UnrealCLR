@@ -541,6 +541,8 @@ namespace UnrealEngine.Framework {
 				Texture2D.hasAlphaChannel = (delegate* unmanaged[Cdecl]<IntPtr, Bool>)texture2DFunctions[head++];
 				Texture2D.getSize = (delegate* unmanaged[Cdecl]<IntPtr, ref Vector2, void>)texture2DFunctions[head++];
 				Texture2D.getPixelFormat = (delegate* unmanaged[Cdecl]<IntPtr, PixelFormat>)texture2DFunctions[head++];
+				Texture2D.setSRGB = (delegate* unmanaged[Cdecl]<IntPtr, Bool, void>) texture2DFunctions[ head++ ];
+				Texture2D.updateResource = (delegate* unmanaged[Cdecl]<IntPtr, void>) texture2DFunctions[ head++ ];
 			}
 
 			unchecked {
@@ -1844,6 +1846,8 @@ namespace UnrealEngine.Framework {
 		internal static delegate* unmanaged[Cdecl]<IntPtr, Bool> hasAlphaChannel;
 		internal static delegate* unmanaged[Cdecl]<IntPtr, ref Vector2, void> getSize;
 		internal static delegate* unmanaged[Cdecl]<IntPtr, PixelFormat> getPixelFormat;
+		internal static delegate* unmanaged[Cdecl]<IntPtr, Bool, void> setSRGB;
+		internal static delegate* unmanaged[Cdecl]<IntPtr, void> updateResource;
 	}
 
 	unsafe partial class ActorComponent {

@@ -1,3 +1,4 @@
+
 /*
  *  Unreal Engine .NET 6 integration
  *  Copyright (c) 2021 Stanislav Denisov
@@ -2276,6 +2277,20 @@ namespace UnrealCLRFramework {
 
 		PixelFormat GetPixelFormat(UTexture2D* Texture2D) {
 			return Texture2D->GetPixelFormat();
+		}
+		
+		void SetSRGB(UTexture2D* Texture2D, bool Value) {
+			if (Value == true)
+			{
+				Texture2D->SRGB = 1;
+			}
+			else
+			{
+				Texture2D->SRGB = 0;
+			}
+		}
+		void UpdateResource(UTexture2D* Texture2D) {
+			Texture2D->UpdateResource();
 		}
 	}
 

@@ -10,3 +10,26 @@ Source/Managed/Tests/obj
 Source/Native/Binaries
 Source/Native/Intermediate
 Source/Native/Managed
+.vs/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Build / test results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+Source/Managed/Framework/UnrealEngine.Framework.sln

@@ -775,6 +775,8 @@ namespace UnrealCLRFramework {
 		static bool HasAlphaChannel(UTexture2D* Texture2D);
 		static void GetSize(UTexture2D* Texture2D, Vector2* Value);
 		static PixelFormat GetPixelFormat(UTexture2D* Texture2D);
+		static void SetSRGB(UTexture2D* Texture2D, bool Value);
+		static void UpdateResource(UTexture2D* Texture2D);
 	}
 
 	namespace ActorComponent {
